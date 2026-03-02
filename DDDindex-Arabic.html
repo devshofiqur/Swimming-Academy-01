@@ -1,0 +1,1225 @@
+<!doctype html>
+<html class="no-js" lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>الرئيسية || سباح</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <!-- ✅ Cairo Arabic Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/material-design-iconic-font.min.css">
+
+    <!-- Plugins CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/plugins/animate.css">
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/plugins/slick.css">
+    <link rel="stylesheet" href="assets/css/plugins/odometer.min.css">
+    <link rel="stylesheet" href="assets/css/shortcode/shortcodes.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        /* ============================================
+           Arabic RTL Global Styles
+           ============================================ */
+        * {
+            font-family: 'Cairo', sans-serif !important;
+        }
+        body {
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* ── Header RTL ── */
+        .top-left ul,
+        .top-right ul,
+        .navigation-menu {
+            padding-right: 0;
+        }
+        .navigation-menu li {
+            float: right;
+        }
+        .top-left ul li,
+        .top-right ul li {
+            float: right;
+        }
+
+        /* ── Accordion RTL ── */
+        .card-header button {
+            flex-direction: row-reverse;
+        }
+        .card-left {
+            text-align: right;
+        }
+        .card-right {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        /* ── Swim Shop Product Cards ── */
+        .product-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+        }
+        .image-area {
+            position: relative;
+            overflow: hidden;
+            height: 220px;
+        }
+        .image-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .product-card:hover .image-area img {
+            transform: scale(1.06);
+        }
+        .image-area::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,80,180,0) 40%, rgba(0,30,80,0.55) 100%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .product-card:hover .image-area::after {
+            opacity: 1;
+        }
+        .view-details-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.85);
+            z-index: 10;
+            background: rgba(255,255,255,0.18);
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.80);
+            padding: 9px 24px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .product-card:hover .view-details-btn {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .swim-shop .card-body {
+            padding: 16px;
+            background: #fff;
+            text-align: center;
+        }
+        .swim-shop .card-body h5 {
+            font-weight: 700;
+            color: #1a1a2e;
+            font-size: 1rem;
+        }
+        .price {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0057d9;
+            margin-bottom: 12px;
+        }
+        .buy-btn {
+            background: linear-gradient(135deg, #0057d9, #00b4d8);
+            color: #fff !important;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 0;
+            font-weight: 700;
+            font-size: 0.92rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+            box-shadow: 0 4px 14px rgba(0,87,217,0.25);
+            text-decoration: none;
+            display: block;
+        }
+        .buy-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(0,87,217,0.4);
+            background: linear-gradient(135deg, #0040b0, #0096c7);
+            color: #fff !important;
+        }
+        .buy-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        .swim-shop .collapse .text-muted {
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: #555 !important;
+            background: #f4f8ff;
+            border-right: 3px solid #0057d9;
+            border-left: none;
+            padding: 10px 12px;
+            border-radius: 6px;
+            text-align: right;
+        }
+        .swim-shop-subtitle {
+            color: #6c757d;
+            font-size: 1rem;
+            margin-top: -8px;
+        }
+
+        /* ── Footer RTL ── */
+        .footer-widget.text-left {
+            text-align: right !important;
+        }
+        .f-left, .f-right {
+            text-align: right;
+        }
+
+        /* ── Blog content RTL ── */
+        .blog-content.text-left {
+            text-align: right !important;
+        }
+
+        /* ── Contact RTL ── */
+        .contact-info p,
+        .contact-info h5 {
+            text-align: center;
+        }
+
+        /* ── Class left RTL ── */
+        .class-left {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--Main Wrapper Start-->
+    <div class="wrapper bg-white fix">
+        <div class="bg-white">
+
+            <!--Header Area Start-->
+            <header class="header-area sticker" id="topnav">
+                <div class="header-wrapper header-padding">
+                    <div class="header-top">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-9">
+                                    <div class="top-left">
+                                        <ul>
+                                            <li><i class="zmdi zmdi-email"></i> demo@example.com</li>
+                                            <li><i class="zmdi zmdi-phone"></i> 0123456789</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-3">
+                                    <div class="top-right">
+                                        <ul>
+                                            <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+                                            <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
+                                            <li><a href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
+                                            <li>
+                                                <a href="https://wa.me/8801XXXXXXXXX" target="_blank">
+                                                    <i class="zmdi zmdi-whatsapp"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="logo">
+                                        <a href="index.html"><img src="assets/images/logo/logo.png" alt="سباح" /></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="menu-area">
+                                        <div class="menu-item">
+                                            <a class="navbar-toggle">
+                                                <div class="lines">
+                                                    <span></span><span></span><span></span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="navigation" class="main-menu">
+                                        <nav>
+                                            <ul class="navigation-menu">
+                                                <li><a href="index.html">الرئيسية</a></li>
+                                                <li><a href="about.html">من نحن</a></li>
+                                                <li><a href="contact.html">اتصل بنا</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- End of Header Area -->
+
+            <!-- Start Slider Area -->
+            <section id="slider-container" class="slider-area">
+                <div class="swimmer-owl-slider owl-carousel">
+                    <div class="single-slide hs-item" style="background-image: url(assets/images/slider/1.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="slider-content">
+                                        <div class="hs-content slide-content text-center">
+                                            <h3>السباحة</h3>
+                                            <h1>نشاط صحي رائع لأطفالك</h1>
+                                            <p>السباحة هي من أفضل الأنشطة الرياضية التي تعزز صحة الجسم والعقل. تعلم السباحة في بيئة آمنة ومريحة مع أفضل المدربين المتخصصين. انضم إلينا اليوم وابدأ رحلتك نحو حياة أكثر صحة ونشاطاً.</p>
+                                            <a href="#" class="btn hidden-xs">اقرأ المزيد</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-slide hs-item" style="background-image: url(assets/images/slider/2.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="slider-content">
+                                        <div class="hs-content slide-content text-center">
+                                            <h3>السباحة</h3>
+                                            <h1>نشاط صحي رائع لأطفالك</h1>
+                                            <p>تعلم السباحة مع أمهر المدربين في بيئة آمنة ومناسبة لجميع الأعمار.</p>
+                                            <a href="#" class="btn hidden-xs">اقرأ المزيد</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-slide hs-item" style="background-image: url(assets/images/slider/3.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="slider-content">
+                                        <div class="hs-content slide-content text-center">
+                                            <h3>السباحة</h3>
+                                            <h1>نشاط صحي رائع لأطفالك</h1>
+                                            <p>تعلم السباحة مع أمهر المدربين في بيئة آمنة ومناسبة لجميع الأعمار.</p>
+                                            <a href="#" class="btn hidden-xs">اقرأ المزيد</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Slider Area -->
+
+            <!-- Start Class Area -->
+            <div class="class-area text-center pt-80 pb-80">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-class picton-border">
+                                <div class="class-icon">
+                                    <img src="assets/images/class/icon-1.png" alt="فصل">
+                                </div>
+                                <div class="class-content">
+                                    <h3>فصل السباحة للصغار</h3>
+                                    <h6>المدرب: آدم جونسون</h6>
+                                    <p class="hover">تعلم أساسيات السباحة في بيئة آمنة وممتعة مصممة خصيصاً للأطفال الصغار.</p>
+                                    <div class="class-button">
+                                        <a href="#" class="read-more btn"><span>اقرأ المزيد</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-class cobalt-border">
+                                <div class="class-icon">
+                                    <img src="assets/images/class/icon-2.png" alt="فصل">
+                                </div>
+                                <div class="class-content">
+                                    <h3>فصل السباحة للأطفال</h3>
+                                    <h6>المدرب: آدم جونسون</h6>
+                                    <p class="hover">برنامج تدريبي متكامل للأطفال يركز على تطوير مهارات السباحة بطريقة ممتعة.</p>
+                                    <div class="class-button">
+                                        <a href="#" class="read-more btn"><span>اقرأ المزيد</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-class cinnabar-border">
+                                <div class="class-icon">
+                                    <img src="assets/images/class/icon-3.png" alt="فصل">
+                                </div>
+                                <div class="class-content">
+                                    <h3>فصل السباحة للبالغين</h3>
+                                    <h6>المدرب: آدم جونسون</h6>
+                                    <p class="hover">دورات متخصصة للبالغين تشمل جميع أساليب السباحة من المستوى المبتدئ إلى المتقدم.</p>
+                                    <div class="class-button">
+                                        <a href="#" class="read-more btn"><span>اقرأ المزيد</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Class Area -->
+
+            <!-- Start of Appointment Area -->
+            <div class="appointment-area">
+                <div class="container-fluid">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="appoint-left active">
+                                <div class="game">
+                                    <a href="#"><img src="assets/images/appointment/2.jpg" alt="موعد"></a>
+                                </div>
+                                <div class="video-icon video-hover">
+                                    <a class="video-popup" href="https://www.youtube.com/watch?v=9No-FiEInLA">
+                                        <i class="zmdi zmdi-play-circle-outline"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="appoint-right pt-20 pb-20 pr-100 pl-100 text-center" style="background: url(assets/images/appointment/1.jpg);">
+                                <div class="appoint-content">
+                                    <img src="assets/images/appointment/1.jpg" alt="موعد">
+                                    <h6>من نحن</h6>
+                                    <h2>مرحباً بكم في أكاديمية السباحة</h2>
+                                    <h3>احجز موعدك الآن</h3>
+                                    <p>نحن نقدم أفضل برامج تدريب السباحة للأطفال والبالغين في بيئة آمنة ومحفزة مع مدربين محترفين ذوي خبرة عالية.</p>
+                                    <div class="class-button">
+                                        <a href="#" class="read-more btn"><span>اقرأ المزيد</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Appointment Area -->
+
+            <!-- Start of Our Classes Area -->
+            <div class="our-classes-area pt-73 pb-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title text-center">
+                                <h2>فصولنا الدراسية</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                            <span class="card-left"><img src="assets/images/icon/2.png" alt="أيقونة">١ | ٢-٣ سنوات</span>
+                                            <span class="card-middle">فصل الرضع الصغار</span>
+                                            <span class="card-right"><i class="zmdi zmdi-minus"></i><i class="zmdi zmdi-plus hover"></i></span>
+                                        </button>
+                                    </div>
+                                    <div id="collapseOne" class="collapse fade show" data-bs-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="class-left">
+                                                        <h3 class="login-title">فصل سباحة الرضع</h3>
+                                                        <p class="heading-p">العمر: ٢-٣ سنوات</p>
+                                                        <p class="heading-p">وقت الفصل: ١٠ص - ١١ص</p>
+                                                        <p class="main">برنامج ممتع ومبتكر لتعريف الرضع بالماء وبناء ثقتهم بأنفسهم في البيئة المائية بطريقة آمنة وممتعة.</p>
+                                                        <p class="heading-p">إجمالي الحصص: ٢٠</p>
+                                                        <button><span>سجّل الآن</span></button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="class-right">
+                                                        <img src="assets/images/class/1.jpg" alt="فصل">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                            <span class="card-left"><img src="assets/images/icon/2.png" alt="أيقونة">٢ | ٣-٤ سنوات</span>
+                                            <span class="card-middle">الفصل المبتدئ الصغير</span>
+                                            <span class="card-right"><i class="zmdi zmdi-minus"></i><i class="zmdi zmdi-plus hover"></i></span>
+                                        </button>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse fade" data-bs-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="class-left">
+                                                        <h3 class="login-title">فصل سباحة الأطفال الصغار</h3>
+                                                        <p class="heading-p">العمر: ٣-٤ سنوات</p>
+                                                        <p class="heading-p">وقت الفصل: ١١ص - ١٢م</p>
+                                                        <p class="main">تطوير مهارات السباحة الأساسية للأطفال الصغار من خلال أنشطة تفاعلية وممتعة في الماء.</p>
+                                                        <p class="heading-p">إجمالي الحصص: ٢٠</p>
+                                                        <button><span>سجّل الآن</span></button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="class-right">
+                                                        <img src="assets/images/class/2.jpg" alt="فصل">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                            <span class="card-left"><img src="assets/images/icon/2.png" alt="أيقونة">٣ | ٤-٥ سنوات</span>
+                                            <span class="card-middle">فصل الأطفال</span>
+                                            <span class="card-right"><i class="zmdi zmdi-minus"></i><i class="zmdi zmdi-plus hover"></i></span>
+                                        </button>
+                                    </div>
+                                    <div id="collapseThree" class="collapse fade" data-bs-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="class-left">
+                                                        <h3 class="login-title">فصل سباحة الأطفال</h3>
+                                                        <p class="heading-p">العمر: ٤-٥ سنوات</p>
+                                                        <p class="heading-p">وقت الفصل: ١٠ص - ١١ص</p>
+                                                        <p class="main">تعليم أساليب السباحة المختلفة للأطفال مع التركيز على السلامة والمتعة في آنٍ واحد.</p>
+                                                        <p class="heading-p">إجمالي الحصص: ٢٠</p>
+                                                        <button><span>سجّل الآن</span></button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="class-right">
+                                                        <img src="assets/images/class/3.jpg" alt="فصل">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="beginnerHeading">
+                                        <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#beginnerClass">
+                                            <span class="card-left"><img src="assets/images/icon/2.png" alt="أيقونة">٤ | ٥-٦ سنوات</span>
+                                            <span class="card-middle">فصل المبتدئين</span>
+                                            <span class="card-right"><i class="zmdi zmdi-minus"></i><i class="zmdi zmdi-plus hover"></i></span>
+                                        </button>
+                                    </div>
+                                    <div id="beginnerClass" class="collapse fade" data-bs-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="class-left">
+                                                        <h3 class="login-title">فصل سباحة المبتدئين</h3>
+                                                        <p class="heading-p">العمر: ٥-٦ سنوات</p>
+                                                        <p class="heading-p">وقت الفصل: ١٠ص - ١١ص</p>
+                                                        <p class="main">برنامج شامل للمبتدئين يغطي أساسيات السباحة والسلامة المائية بأسلوب تدريجي ومدروس.</p>
+                                                        <p class="heading-p">إجمالي الحصص: ٢٠</p>
+                                                        <button><span>سجّل الآن</span></button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="class-right">
+                                                        <img src="assets/images/class/4.jpg" alt="فصل">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="adultHeading">
+                                        <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#adultClass">
+                                            <span class="card-left"><img src="assets/images/icon/2.png" alt="أيقونة">٥ | ٦-١٢ سنوات</span>
+                                            <span class="card-middle">فصل الكبار</span>
+                                            <span class="card-right"><i class="zmdi zmdi-minus"></i><i class="zmdi zmdi-plus hover"></i></span>
+                                        </button>
+                                    </div>
+                                    <div id="adultClass" class="collapse fade" data-bs-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="class-left">
+                                                        <h3 class="login-title">فصل سباحة الكبار</h3>
+                                                        <p class="heading-p">العمر: ٦-١٢ سنوات</p>
+                                                        <p class="heading-p">وقت الفصل: ١٠ص - ١١ص</p>
+                                                        <p class="main">تطوير المهارات المتقدمة في السباحة وتحسين الأداء الرياضي للمتسابقين الشباب.</p>
+                                                        <p class="heading-p">إجمالي الحصص: ٢٠</p>
+                                                        <button><span>سجّل الآن</span></button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="class-right">
+                                                        <img src="assets/images/class/5.jpg" alt="فصل">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Our Classes Area -->
+
+            <!-- ============================================
+                 قسم منتجات السباحة
+            ============================================ -->
+            <section class="swim-shop py-5">
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-12 text-center">
+                            <div class="section-title">
+                                <h2>منتجات السباحة</h2>
+                                <p class="swim-shop-subtitle">أفضل المعدات لكل سباح</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+
+                        <!-- منتج ١ -->
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card product-card">
+                                <div class="image-area">
+                                    <img src="https://preview.redd.it/what-are-the-best-swimming-goggles-you-recommend-v0-lfpdhyynpdfd1.jpeg?auto=webp&s=735686ed21387395c6a7062fb2dd3b2648151357" class="img-fluid" alt="نظارة السباحة">
+                                    <button class="view-details-btn" data-bs-toggle="collapse" data-bs-target="#details1">عرض التفاصيل</button>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5>نظارة السباحة</h5>
+                                    <p class="price">٣٠$</p>
+                                    <a href="https://wa.me/8801712345678?text=أريد%20شراء%20نظارة%20السباحة" target="_blank" class="btn buy-btn w-100">اشتري الآن</a>
+                                    <div class="collapse mt-3" id="details1">
+                                        <p class="text-muted small">عدسات مضادة للضباب مع حشوة من السيليكون الناعم. رؤية واضحة تحت الماء، تحمي من الكلور ومياه البحر والأشعة فوق البنفسجية. 🏊‍♂️</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- منتج ٢ -->
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card product-card">
+                                <div class="image-area">
+                                    <img src="https://m.media-amazon.com/images/I/61btZZ0zmvL._AC_UF894,1000_QL80_.jpg" class="img-fluid" alt="قبعة السباحة">
+                                    <button class="view-details-btn" data-bs-toggle="collapse" data-bs-target="#details2">عرض التفاصيل</button>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5>قبعة السباحة</h5>
+                                    <p class="price">٢٠$</p>
+                                    <a href="https://wa.me/8801712345678?text=أريد%20شراء%20قبعة%20السباحة" target="_blank" class="btn buy-btn w-100">اشتري الآن</a>
+                                    <div class="collapse mt-3" id="details2">
+                                        <p class="text-muted small">مصنوعة من قماش عالي الجودة، خفيفة وناعمة ومرنة. مناسبة للأطفال والبالغين، سهلة الارتداء والخلع، لا تتشابك مع الشعر. 🏊‍♂️</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- منتج ٣ -->
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card product-card">
+                                <div class="image-area">
+                                    <img src="https://i5.walmartimages.com/asr/f6f51312-d48c-4313-9e9a-d6a3b55ce3dc.80e23a31709d76dc1a0ba5033a156207.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF" class="img-fluid" alt="سدادات الأذن">
+                                    <button class="view-details-btn" data-bs-toggle="collapse" data-bs-target="#details3">عرض التفاصيل</button>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5>سدادات الأذن</h5>
+                                    <p class="price">١٥$</p>
+                                    <a href="https://wa.me/8801712345678?text=أريد%20شراء%20سدادات%20الأذن" target="_blank" class="btn buy-btn w-100">اشتري الآن</a>
+                                    <div class="collapse mt-3" id="details3">
+                                        <p class="text-muted small">مصنوعة من السيليكون الناعم، صديقة للبيئة وغير سامة. تمنع دخول الماء للأذن، قابلة لإعادة الاستخدام والغسيل. تأتي مع علبة حفظ مريحة. 🏊‍♂️</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- منتج ٤ -->
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card product-card">
+                                <div class="image-area">
+                                    <img src="https://static-01.daraz.com.bd/p/0eead27312263c998861f61305deab30.jpg" class="img-fluid" alt="مشبك الأنف">
+                                    <button class="view-details-btn" data-bs-toggle="collapse" data-bs-target="#details4">عرض التفاصيل</button>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5>مشبك الأنف</h5>
+                                    <p class="price">١٥$</p>
+                                    <a href="https://wa.me/8801712345678?text=أريد%20شراء%20مشبك%20الأنف" target="_blank" class="btn buy-btn w-100">اشتري الآن</a>
+                                    <div class="collapse mt-3" id="details4">
+                                        <p class="text-muted small">مشبك أنف سيليكون مقاوم للماء للسباحة. تصميم نقطي لمزيد من الثبات، لا يؤذي الأنف. مناسب للأطفال والبالغين. يأتي بمجموعة من ٤ قطع. 🏊‍♂️</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- منتج ٥ -->
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card product-card">
+                                <div class="image-area">
+                                    <img src="https://m.media-amazon.com/images/I/61cOu7896UL._AC_UF1000,1000_QL80_.jpg" class="img-fluid" alt="زعانف السباحة">
+                                    <button class="view-details-btn" data-bs-toggle="collapse" data-bs-target="#details5">عرض التفاصيل</button>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5>زعانف السباحة</h5>
+                                    <p class="price">١٥$</p>
+                                    <a href="https://wa.me/8801712345678?text=أريد%20شراء%20زعانف%20السباحة" target="_blank" class="btn buy-btn w-100">اشتري الآن</a>
+                                    <div class="collapse mt-3" id="details5">
+                                        <p class="text-muted small">تعزز قوة الساقين وتحسين أسلوب الركل في الماء. متوفرة بحجمين: قصير وطويل. مثالية للمتدربين من جميع المستويات. 🏊‍♂️</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- منتج ٦ -->
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card product-card">
+                                <div class="image-area">
+                                    <img src="https://microless.com/cdn/products/d01cdc4b86a192e0f4e0aa17b8dba86b-hi.jpg" class="img-fluid" alt="لوح السباحة">
+                                    <button class="view-details-btn" data-bs-toggle="collapse" data-bs-target="#details6">عرض التفاصيل</button>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5>لوح السباحة</h5>
+                                    <p class="price">١٥$</p>
+                                    <a href="https://wa.me/8801712345678?text=أريد%20شراء%20لوح%20السباحة" target="_blank" class="btn buy-btn w-100">اشتري الآن</a>
+                                    <div class="collapse mt-3" id="details6">
+                                        <p class="text-muted small">لوح EVA عالي الجودة مقاس ٣٨×٢٧×٤ سم. يوفر طفواناً ممتازاً أثناء تدريبات الأرجل. مناسب للأطفال والبالغين والمبتدئين. خفيف وسهل الحمل. 🏊‍♂️</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- منتج ٧ -->
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card product-card">
+                                <div class="image-area">
+                                    <img src="https://www-usms-hhgdctfafngha6hr.z01.azurefd.net/-/media/usms/lightroom/ldm02214.jpg?rev=da3cc6620cfa48e680ea84c5d0fcab47&hash=5778A25A2C58D20E4D070C751E28EEAE" class="img-fluid" alt="مجاديف السباحة">
+                                    <button class="view-details-btn" data-bs-toggle="collapse" data-bs-target="#details7">عرض التفاصيل</button>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5>مجاديف السباحة</h5>
+                                    <p class="price">١٥$</p>
+                                    <a href="https://wa.me/8801712345678?text=أريد%20شراء%20مجاديف%20السباحة" target="_blank" class="btn buy-btn w-100">اشتري الآن</a>
+                                    <div class="collapse mt-3" id="details7">
+                                        <p class="text-muted small">تساعد على تطوير قوة الضربات وتحسين التقنية في الماء. تزيد مقاومة الماء لبناء عضلات أقوى في الذراعين والصدر. 🏊‍♂️</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- منتج ٨ -->
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card product-card">
+                                <div class="image-area">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdB75YRhcYbwwHymOWe8Htt9xNWmPoFokNFQ&s" class="img-fluid" alt="حقيبة السباحة">
+                                    <button class="view-details-btn" data-bs-toggle="collapse" data-bs-target="#details8">عرض التفاصيل</button>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5>حقيبة السباحة</h5>
+                                    <p class="price">١٥$</p>
+                                    <a href="https://wa.me/8801712345678?text=أريد%20شراء%20حقيبة%20السباحة" target="_blank" class="btn buy-btn w-100">اشتري الآن</a>
+                                    <div class="collapse mt-3" id="details8">
+                                        <p class="text-muted small">حقيبة شبكية مقاومة للماء لحمل معدات السباحة. خفيفة الوزن وتجف بسرعة، مثالية للاستخدام اليومي في حمام السباحة. 🏊‍♂️</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- row بند -->
+                </div><!-- container بند -->
+            </section>
+            <!-- نهاية قسم منتجات السباحة -->
+
+            <!-- Start of Instructor Area -->
+            <div class="instructor-area bg-gray pt-76 pb-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title text-center">
+                                <h2>أفضل مدربينا</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="slick-wrapper">
+                                <div class="insturctor-owl">
+                                    <div class="custom-col">
+                                        <div class="single-instructor blue">
+                                            <div class="inst-img">
+                                                <img src="assets/images/insturctor/2.jpg" alt="مدرب">
+                                                <div class="inst-content text-center pt-36 pb-40 pl-30 pr-30">
+                                                    <h5>مدرب سباحة</h5>
+                                                    <h6>محسن خان</h6>
+                                                    <p>مدرب متخصص بخبرة أكثر من ١٠ سنوات في تدريب السباحة لجميع الأعمار.</p>
+                                                    <ul>
+                                                        <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+                                                        <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
+                                                        <li><a href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
+                                                        <li><a href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-col">
+                                        <div class="single-instructor red">
+                                            <div class="inst-img">
+                                                <img src="assets/images/insturctor/3.jpg" alt="مدرب">
+                                                <div class="inst-content text-center pt-36 pb-40 pl-30 pr-30">
+                                                    <h5>مدرب سباحة</h5>
+                                                    <h6>محسن خان</h6>
+                                                    <p>مدرب متخصص بخبرة أكثر من ١٠ سنوات في تدريب السباحة لجميع الأعمار.</p>
+                                                    <ul>
+                                                        <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+                                                        <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
+                                                        <li><a href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
+                                                        <li><a href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-col">
+                                        <div class="single-instructor">
+                                            <div class="inst-img">
+                                                <img src="assets/images/insturctor/1.jpg" alt="مدرب">
+                                                <div class="inst-content text-center pt-36 pb-40 pl-30 pr-30">
+                                                    <h5>مدرب سباحة</h5>
+                                                    <h6>محسن خان</h6>
+                                                    <p>مدرب متخصص بخبرة أكثر من ١٠ سنوات في تدريب السباحة لجميع الأعمار.</p>
+                                                    <ul>
+                                                        <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+                                                        <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
+                                                        <li><a href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
+                                                        <li><a href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Instructor Area -->
+
+            <!-- Start of Testimonial Area -->
+            <div class="testimonial-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="testimonial-owl owl-carousel">
+                                <div class="col">
+                                    <div class="testimonial-content text-center pt-75 pb-100 mt-80 mb-80">
+                                        <h3>ماذا يقول عملاؤنا؟</h3>
+                                        <i class="zmdi zmdi-quote first"></i>
+                                        <p>أكاديمية رائعة! تعلم ابني السباحة في وقت قصير مع مدربين محترفين. الجو العام ممتاز والاهتمام بالأطفال يفوق التوقعات. أنصح به بشدة لكل الأهالي.</p>
+                                        <i class="zmdi zmdi-quote"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="testimonial-content text-center pt-75 pb-100 mt-80 mb-80">
+                                        <h3>ماذا يقول عملاؤنا؟</h3>
+                                        <i class="zmdi zmdi-quote first"></i>
+                                        <p>تجربة استثنائية! المدربون صبورون ومحترفون، وابنتي أصبحت تحب السباحة وتتطلع لكل حصة. شكراً لهذا الفريق المتميز.</p>
+                                        <i class="zmdi zmdi-quote"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="testimonial-content text-center pt-75 pb-100 mt-80 mb-80">
+                                        <h3>ماذا يقول عملاؤنا؟</h3>
+                                        <i class="zmdi zmdi-quote first"></i>
+                                        <p>المنتجات التي اشتريتها من المتجر ذات جودة عالية جداً وبأسعار معقولة. التوصيل سريع والتعامل ممتاز. سأعود للشراء مجدداً بالتأكيد.</p>
+                                        <i class="zmdi zmdi-quote"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Testimonial Area -->
+
+            <!-- Start of Gallery Area -->
+            <div class="project-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title text-center">
+                                <h2>معرض الصور</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="grid">
+                                <div class="grid-item cat1 cat3">
+                                    <div class="portfolio-img">
+                                        <img src="assets/images/portfolio/1.jpg" alt="معرض" />
+                                        <div class="portfolio-hover-wrapper">
+                                            <div class="portfolio-hover">
+                                                <div class="hover-content">
+                                                    <a class="img-poppu" href="assets/images/portfolio/1.jpg"><i class="zmdi zmdi-eye"></i></a>
+                                                    <h4>أطفال صغار</h4>
+                                                    <p>تدريب السباحة للرضع والأطفال</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid-item cat2 cat3">
+                                    <div class="portfolio-img">
+                                        <img src="assets/images/portfolio/2.jpg" alt="معرض" />
+                                        <div class="portfolio-hover-wrapper">
+                                            <div class="portfolio-hover">
+                                                <div class="hover-content">
+                                                    <a class="img-poppu" href="assets/images/portfolio/2.jpg"><i class="zmdi zmdi-eye"></i></a>
+                                                    <h4>فصل المبتدئين</h4>
+                                                    <p>تدريب السباحة للمبتدئين</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid-item cat1 cat2">
+                                    <div class="portfolio-img">
+                                        <img src="assets/images/portfolio/3.jpg" alt="معرض" />
+                                        <div class="portfolio-hover-wrapper">
+                                            <div class="portfolio-hover">
+                                                <div class="hover-content">
+                                                    <a class="img-poppu" href="assets/images/portfolio/3.jpg"><i class="zmdi zmdi-eye"></i></a>
+                                                    <h4>فصل المتقدمين</h4>
+                                                    <p>تدريب السباحة للمتقدمين</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid-item cat2">
+                                    <div class="portfolio-img">
+                                        <img src="assets/images/portfolio/4.jpg" alt="معرض" />
+                                        <div class="portfolio-hover-wrapper">
+                                            <div class="portfolio-hover">
+                                                <div class="hover-content">
+                                                    <a class="img-poppu" href="assets/images/portfolio/4.jpg"><i class="zmdi zmdi-eye"></i></a>
+                                                    <h4>المسابقات</h4>
+                                                    <p>مسابقات السباحة</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid-item cat2 cat3">
+                                    <div class="portfolio-img">
+                                        <img src="assets/images/portfolio/5.jpg" alt="معرض" />
+                                        <div class="portfolio-hover-wrapper">
+                                            <div class="portfolio-hover">
+                                                <div class="hover-content">
+                                                    <a class="img-poppu" href="assets/images/portfolio/5.jpg"><i class="zmdi zmdi-eye"></i></a>
+                                                    <h4>التدريب الجماعي</h4>
+                                                    <p>جلسات التدريب الجماعي</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid-item cat1 cat3">
+                                    <div class="portfolio-img">
+                                        <img src="assets/images/portfolio/6.jpg" alt="معرض" />
+                                        <div class="portfolio-hover-wrapper">
+                                            <div class="portfolio-hover">
+                                                <div class="hover-content">
+                                                    <a class="img-poppu" href="assets/images/portfolio/6.jpg"><i class="zmdi zmdi-eye"></i></a>
+                                                    <h4>أنشطة مائية</h4>
+                                                    <p>الأنشطة المائية المتنوعة</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid-item cat1 cat3">
+                                    <div class="portfolio-img">
+                                        <img src="assets/images/portfolio/7.jpg" alt="معرض" />
+                                        <div class="portfolio-hover-wrapper">
+                                            <div class="portfolio-hover">
+                                                <div class="hover-content">
+                                                    <a class="img-poppu" href="assets/images/portfolio/7.jpg"><i class="zmdi zmdi-eye"></i></a>
+                                                    <h4>تحسين المهارات</h4>
+                                                    <p>تطوير مهارات السباحة</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Gallery Area -->
+
+            <!-- Start of Fun Area -->
+            <div class="fun-area pt-110 pb-110">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="single-fun text-center">
+                                <div class="fun-img"><span><img src="assets/images/fun/1.png" alt="إحصاء"></span></div>
+                                <div class="fun-content">
+                                    <h3 class="counter odometer" data-count-to="2400">0</h3>
+                                    <h5>عميل سعيد</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="single-fun text-center">
+                                <div class="fun-img"><span><img src="assets/images/fun/2.png" alt="إحصاء"></span></div>
+                                <div class="fun-content">
+                                    <h3 class="counter odometer" data-count-to="28">0</h3>
+                                    <h5>سنة خبرة</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="single-fun text-center">
+                                <div class="fun-img"><span><img src="assets/images/fun/3.png" alt="إحصاء"></span></div>
+                                <div class="fun-content">
+                                    <h3 class="counter odometer" data-count-to="90">0</h3>
+                                    <h5>نسبة النجاح</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="single-fun text-center">
+                                <div class="fun-img"><span><img src="assets/images/fun/4.png" alt="إحصاء"></span></div>
+                                <div class="fun-content">
+                                    <h3 class="counter odometer" data-count-to="560">0</h3>
+                                    <h5>جوائز مكتسبة</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Fun Area -->
+
+            <!-- Start of Blog Area -->
+            <div class="blog-area pt-80 pb-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12 mb-md--40">
+                            <div class="single-blog text-center">
+                                <div class="blog-img">
+                                    <img src="assets/images/blog/1.jpg" alt="مدونة">
+                                    <a href="#"><i class="zmdi zmdi-link"></i></a>
+                                    <div class="date">فبراير <span>٢١</span></div>
+                                </div>
+                                <div class="blog-content text-right">
+                                    <h3><a href="#">السباحة أفضل نشاط رياضي على الإطلاق</a></h3>
+                                    <p>السباحة تقوي عضلات الجسم بالكامل وتحسن القدرة التنفسية وتزيد من المرونة والتوازن.</p>
+                                    <a href="#" class="read-more"><span>اقرأ المزيد</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12 mb-md--40">
+                            <div class="single-blog text-center">
+                                <div class="blog-img">
+                                    <img src="assets/images/blog/2.jpg" alt="مدونة">
+                                    <a href="#"><i class="zmdi zmdi-link"></i></a>
+                                    <div class="date">فبراير <span>٢٤</span></div>
+                                </div>
+                                <div class="blog-content text-right">
+                                    <h3><a href="#">فوائد السباحة للأطفال في سن مبكرة</a></h3>
+                                    <p>تعلم السباحة منذ الصغر يبني الثقة بالنفس ويطور القدرات الحركية والذهنية للأطفال.</p>
+                                    <a href="#" class="read-more"><span>اقرأ المزيد</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="single-blog text-center">
+                                <div class="blog-img">
+                                    <img src="assets/images/blog/3.jpg" alt="مدونة">
+                                    <a href="#"><i class="zmdi zmdi-link"></i></a>
+                                    <div class="date">فبراير <span>٢٦</span></div>
+                                </div>
+                                <div class="blog-content text-right">
+                                    <h3><a href="#">كيف تختار المعدات المناسبة للسباحة؟</a></h3>
+                                    <p>دليل شامل لاختيار أفضل معدات السباحة التي تناسب احتياجاتك وميزانيتك.</p>
+                                    <a href="#" class="read-more"><span>اقرأ المزيد</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Blog Area -->
+
+            <!-- Start of Contact Area -->
+            <div class="contact-area text-center pb-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="single-contact">
+                                <div class="contact-icon"><i class="zmdi zmdi-home"></i></div>
+                                <div class="contact-info">
+                                    <h5>العنوان</h5>
+                                    <p>برج إليزابيث، الطابق السادس<br>مدينة ميدتاون، نيويورك</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="single-contact">
+                                <div class="contact-icon"><i class="zmdi zmdi-phone"></i></div>
+                                <div class="contact-info">
+                                    <h5>رقم الهاتف</h5>
+                                    <p>0123456789<br>0123456789</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="single-contact">
+                                <div class="contact-icon"><i class="zmdi zmdi-email"></i></div>
+                                <div class="contact-info">
+                                    <h5>البريد الإلكتروني</h5>
+                                    <p>demo@example.com<br>demo@example.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Contact Area -->
+
+            <!-- Start of Footer Area -->
+            <footer class="footer-area">
+                <div class="main-footer pt-76 pb-72">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-7 col-12 mb-md--40">
+                                <div class="footer-widget text-right f-right">
+                                    <h3>آخر التغريدات</h3>
+                                    <div class="single-feed mb-15">
+                                        <h5>بقلم: بلو بابلز <span>٢٠٢٦</span></h5>
+                                        <p><a href="#">#هنا</a> أحدث أخبار أكاديمية السباحة ونصائح للمدربين والأهالي.</p>
+                                    </div>
+                                    <div class="single-feed">
+                                        <h5>بقلم: بلو بابلز <span>٢٠٢٦</span></h5>
+                                        <p>انضم إلى <a href="#">#مجتمعنا</a> وكن جزءاً من عائلة السباحة الكبيرة.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-5 col-12 mb-md--40">
+                                <div class="footer-widget text-center">
+                                    <a href="index.html"><img src="assets/images/logo/footer-logo.png" alt="شعار"></a>
+                                    <p>أكاديمية السباحة الرائدة في تقديم أفضل برامج التدريب لجميع الأعمار في بيئة آمنة ومحفزة.</p>
+                                    <div class="footer-icons">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="zmdi zmdi-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="zmdi zmdi-whatsapp"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <div class="footer-widget text-right">
+                                    <h3>آخر المقالات</h3>
+                                    <div class="post">
+                                        <div class="post-img">
+                                            <img src="assets/images/post/1.jpg" alt="مقال">
+                                            <a href="#"><i class="zmdi zmdi-link"></i></a>
+                                        </div>
+                                        <div class="post-img">
+                                            <img src="assets/images/post/2.jpg" alt="مقال">
+                                            <a href="#"><i class="zmdi zmdi-link"></i></a>
+                                        </div>
+                                        <div class="post-img">
+                                            <img src="assets/images/post/3.jpg" alt="مقال">
+                                            <a href="#"><i class="zmdi zmdi-link"></i></a>
+                                        </div>
+                                        <div class="post-img">
+                                            <img src="assets/images/post/4.jpg" alt="مقال">
+                                            <a href="#"><i class="zmdi zmdi-link"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom pt-8 pb-10">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <p class="copyright">
+                                    &copy; ٢٠٢٦ <strong>سباح</strong> — جميع الحقوق محفوظة
+                                    <i class="fa fa-heart text-danger" aria-hidden="true"></i>
+                                    تطوير: شفيقور
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer Area -->
+
+        </div>
+    </div>
+    <!-- End of Main Wrapper -->
+
+    <!-- JS -->
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/ajax-mail.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/jquery.magnific-popup.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
